@@ -99,6 +99,9 @@ class BrowserWindow : public BaseWindow,
   void BlurWebView();
   bool IsWebViewFocused();
   v8::Local<v8::Value> GetWebContents(v8::Isolate* isolate);
+#if BUILDFLAG(IS_WIN)
+  void SetTitleBarOverlay(const gin_helper::Dictionary& options);
+#endif
 
  private:
 #if BUILDFLAG(IS_MAC)
